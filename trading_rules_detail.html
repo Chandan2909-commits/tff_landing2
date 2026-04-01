@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="The Fusion Funded — Detailed Trading Rules and Guidelines." />
+  <title>The Fusion Funded | Rules Details</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .faq-hero {
+      padding-top: 150px;
+      padding-bottom: 50px;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .faq-hero-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .faq-container {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Sidebar */
+    .faq-sidebar {
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .faq-tab {
+      background: rgba(14, 18, 30, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 16px 20px;
+      border-radius: 8px;
+      color: #b0b0b0;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .faq-tab:hover {
+      background: rgba(0, 212, 255, 0.05);
+      color: #fff;
+    }
+    .faq-tab.active {
+      border-color: #00d4ff;
+      background: rgba(0, 212, 255, 0.1);
+      color: #fff;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.1);
+    }
+
+    /* Main Content */
+    .faq-content-area {
+      flex: 1;
+      background: rgba(14, 18, 30, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 40px;
+      backdrop-filter: blur(10px);
+    }
+    .faq-category-content {
+      display: none;
+      animation: fadeIn 0.4s ease-out;
+    }
+    .faq-category-content.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .category-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Accordion */
+    .accordion-item {
+      margin-bottom: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .accordion-header {
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.02);
+      transition: background 0.3s ease;
+    }
+    .accordion-header:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .accordion-header h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #fff;
+      margin: 0;
+    }
+    .accordion-icon {
+      color: #00d4ff;
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: transform 0.3s ease;
+    }
+    .accordion-item.active .accordion-header {
+      background: rgba(0, 212, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .accordion-item.active .accordion-icon {
+      transform: rotate(45deg);
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .accordion-content-inner {
+      padding: 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #b0b0b0;
+    }
+    .accordion-content-inner p {
+      margin-bottom: 15px;
+    }
+    .accordion-content-inner p:last-child {
+      margin-bottom: 0;
+    }
+    .accordion-content-inner ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+    .accordion-content-inner li {
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: 992px) {
+      .faq-container {
+        flex-direction: column;
+      }
+      .faq-sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .faq-tab {
+        flex: 1 1 calc(33.333% - 10px);
+        text-align: center;
+        padding: 12px;
+      }
+    }
+    @media (max-width: 768px) {
+      .faq-tab {
+        flex: 1 1 calc(50% - 10px);
+      }
+      .faq-content-area {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo" id="nav-logo">
+        <a href="index.html" style="text-decoration: none; color: inherit; display: flex;">
+          <span class="logo-text">THE FUSION</span>
+          <span class="logo-accent">FUNDED</span>
+        </a>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="trading_rules.html" class="nav-link">Trading Rules</a></li>
+        <li><a href="affiliate_program.html" class="nav-link">Affiliates</a></li>
+        <li><a href="#" class="nav-link">Contact Us</a></li>
+      </ul>
+      <a href="https://user.thefusionfunded.com/user/signup" class="nav-cta" id="nav-cta" target="_blank">Login / Sign Up</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== FLOATING GRADIENT ORBS ===== -->
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+
+  <!-- ===== HERO ===== -->
+  <section class="faq-hero container">
+    <h1 class="faq-hero-title">Rules &amp; <span class="gradient-text">Guidelines</span></h1>
+    <p style="color: #b0b0b0; max-width: 600px; margin: 0 auto;">Select a category below to view detailed answers to our most commonly asked questions regarding our trading guidelines, policies, and requirements.</p>
+  </section>
+
+  <!-- ===== FAQ LAYOUT ===== -->
+  <section class="faq-container container">
+    <!-- Sidebar Tabs -->
+    <div class="faq-sidebar" id="faq-sidebar">
+      <button class="faq-tab" data-target="about">About The Fusion Funded</button>
+      <button class="faq-tab" data-target="rules">Trading Rules and Guidelines</button>
+      <button class="faq-tab" data-target="kyc">KYC (Know Your Customer)</button>
+      <button class="faq-tab" data-target="withdrawals">Withdrawals</button>
+      <button class="faq-tab" data-target="weekend">Weekend Trading</button>
+      <button class="faq-tab" data-target="security">Account Security & Access Rules</button>
+      <button class="faq-tab" data-target="refund">Refund Policies</button>
+    </div>
+
+    <!-- Content Area -->
+    <div class="faq-content-area" id="faq-content-area">
+
+      <!-- Category: About -->
+      <div class="faq-category-content" id="about">
+        <h2 class="category-title">About The Fusion Funded</h2>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>What is The Fusion Funded?</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>The Fusion Funded is a hedge-fund-backed proprietary trading firm that provides traders with funded capital through a structured evaluation process. Our goal is to identify disciplined traders and allocate real capital to those who demonstrate strong risk management and consistency.</p>
+              <p>Unlike traditional prop firms, our model is designed to reduce unnecessary restrictions and allow traders to focus purely on performance.</p>
+              <p>We offer two evaluation pathways:</p>
+              <ul>
+                <li>One-Step Challenge</li>
+                <li>Two-Step Challenge</li>
+              </ul>
+              <p>Both challenges are manually reviewed and designed to assess trading discipline, decision-making, and capital preservation skills before funding is granted.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>What makes The Fusion Funded different?</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>The Fusion Funded operates with a simplified and trader-focused risk model:</p>
+              <ul>
+                <li>Static 10% maximum drawdown</li>
+                <li>No daily drawdown limits</li>
+                <li>No trading restrictions on funded accounts</li>
+                <li>Manual challenge evaluation process</li>
+                <li>Backed by a hedge fund capital model</li>
+              </ul>
+              <p>Once funded, traders operate with significantly fewer constraints compared to industry-standard prop firm models. Top-performing traders may also be selected for an exclusive opportunity to trade directly from our physical trading office, where we allocate hedge fund capital to a small percentage of consistently profitable traders.</p>
+              <p>Only about 1% of traders reach this level.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>How do I get started with The Fusion Funded?</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Getting started with The Fusion Funded is simple and straightforward. Follow these steps to begin your journey toward a funded trading account:</p>
+              <ul>
+                <li><strong>Visit the Checkout Page:</strong> Choose the challenge that best fits your trading style.</li>
+                <li><strong>Select Your Challenge:</strong> Pick between our One-Step Challenge or Two-Step Challenge models.</li>
+                <li><strong>Trade by The Fusion Funded Rules:</strong> Trade the evaluation account while respecting the challenge objectives and the applicable static drawdown rules.</li>
+                <li><strong>Pass the Challenge:</strong> Once the objectives are completed, our team manually reviews the account to ensure the evaluation requirements were met.</li>
+                <li><strong>Get Funded & Start Trading:</strong> After successful verification, you will receive your funded account and can begin trading and withdrawing profits according to our payout policy.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>Who can join The Fusion Funded?</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>The Fusion Funded is designed for retail traders worldwide who want to demonstrate their trading skills, improve performance, and earn profits through our funded account program. We welcome individuals who are passionate about trading, regardless of prior experience. Both beginners and experienced traders are welcome to participate. All participants must be at least 18 years of age.</p>
+              <p><strong>Restricted Jurisdictions & Compliance</strong><br>To comply with international regulations, The Fusion Funded does not provide services to individuals located in or residents of: North Korea, Iran, South Sudan, Sudan, Yemen.</p>
+              <p>Additionally, we do not provide services to individuals or entities listed on international sanctions lists or global anti-terrorism compliance lists, persons with criminal histories involving financial crimes or terrorism, or individuals previously banned due to contract violations or policy breaches.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category: Rules -->
+      <div class="faq-category-content" id="rules">
+        <h2 class="category-title">Trading Rules and Guidelines</h2>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>The Fusion Funded — Two-Step Challenge Model</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>The Two-Step Challenge consists of two evaluation phases evaluating trading discipline, consistency, and risk management.</p>
+              <p><strong>Phase 1 — Performance Evaluation</strong><br>Trading Objectives: Achieve an 8% profit target, Follow all trading rules, Respect maximum drawdown rules. After completing Phase 1, the account enters a 24-hour review period.</p>
+              <p><strong>Phase 2 — Verification</strong><br>Trading Objectives: Achieve a 5% profit target, Continue following all trading rules. After Phase 2 completion, the account undergoes another 24-hour review before funding.</p>
+              <p><strong>Maximum Drawdown Rule</strong><br>Static drawdown model: Maximum Drawdown is 10% of initial account size. Daily Drawdown: None.</p>
+              <p><strong>Single-Trade Risk Rule</strong><br>A trader may risk up to 20% of the total drawdown allowance in one trade. Exceeding this limit will be treated as a violation.</p>
+              <p><strong>Layering</strong><br>Opening more than three positions on the same instrument in the same direction simultaneously is not allowed.</p>
+              <p><strong>Toxic Trading Behavior (Soft Breach)</strong><br>Examples include: Ignoring risk management, Reckless trading behavior, Trading without a clear strategy, Emotion-driven trading.</p>
+              <p><strong>Excessive Risk-Taking / Over-Leveraging</strong><br>Using disproportionately large position sizes, relying heavily on leverage, using maximum lot size repeatedly.</p>
+              <p><strong>Martingale Trading Policy</strong><br>Increasing position size after losses to recover drawdown (e.g., Doubling lot size after a loss).</p>
+              <p><strong>Gambling & Overtrading</strong><br>Random entries without analysis, revenge trading, too many trades in a short time.</p>
+              <p><strong>Tick Scalping</strong><br>Opening and closing trades within 120 seconds. Up to 20% of total trades may be ignored, beyond that trades may be reviewed.</p>
+              <p><strong>Hedging, Reverse Trading & One-Sided Bias</strong><br>Opposite trades on same instrument, locking positions to remove exposure, intentionally losing trades, offset trades across accounts, trades placed within 15 mins to neutralize exposure may be flagged.</p>
+              <p><strong>News Trading</strong><br>News trading is fully allowed during both the challenge phases and the funded stage.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>The Fusion Funded — One-Step Challenge Model</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>The One-Step Challenge is a single-phase evaluation designed for traders who want a straightforward path to funding.</p>
+              <p><strong>Phase 1 — Verification</strong><br>Trading Objectives: Achieve a 10% profit target, Follow all trading rules, Respect maximum drawdown rules. Once approved, the trader proceeds to the funded stage.</p>
+              <p><strong>Maximum Drawdown Rule</strong><br>Static drawdown model: Maximum Drawdown is 6% of initial account size. Daily Drawdown: None. Your balance or equity must never fall below the maximum loss limit.</p>
+              <p><strong>Single-Trade Risk Rule</strong><br>A trader may risk up to 20% of the total drawdown allowance in one trade.</p>
+              <p>All other rules regarding Layering, Toxic Trading Behavior, Excessive Risk-Taking, Martingale, Gambling, Overtrading, Tick Scalping, Hedging, Reverse Trading, and News Trading are exactly the same as the Two-Step Model.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category: KYC -->
+      <div class="faq-category-content" id="kyc">
+        <h2 class="category-title">KYC (Know Your Customer)</h2>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>Why Is Completing KYC Necessary for My Account?</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Completing the Know Your Customer (KYC) process is a mandatory step to maintain a secure, fair, and compliant trading environment.</p>
+              <ol>
+                <li><strong>Legal & Regulatory Compliance:</strong> KYC allows us to comply with international regulations designed to prevent fraud, money laundering, identity misuse, and financial crime.</li>
+                <li><strong>Account Security & Protection:</strong> Adds an additional layer of security by linking trading accounts to verified personal information.</li>
+                <li><strong>Fair Trading Environment:</strong> Helps ensure that one individual does not operate multiple accounts and all traders are evaluated under equal conditions.</li>
+                <li><strong>Payout Eligibility:</strong> KYC verification must be completed before any payout request can be processed.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>What Documents Are Required for KYC Verification?</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>You must submit one valid government-issued photo ID.</p>
+              <ul>
+                <li>Passport (preferred)</li>
+                <li>Driver’s License</li>
+                <li>National ID Card</li>
+              </ul>
+              <p>Important Requirements: The document must be valid and not expired, the photo and personal details must be clear and readable, and the name on the ID must match the name on your The Fusion Funded account.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>How Long Does KYC Verification Take?</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Most KYC checks are completed within 1–2 business days after document submission. In some cases, KYC may be approved instantly when documents are clear, valid, and meet all requirements.</p>
+              <p>Verification may take longer if documents are blurry or cropped, information does not match account details, or additional verification checks are required.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>What Happens If My KYC Application Is Rejected?</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>If your KYC application is rejected, it does not mean you are permanently disqualified. Rejections usually occur due to missing, unclear, or mismatched information and can typically be resolved quickly.</p>
+              <p>You will receive an email explaining the reason for the rejection with an opportunity to resubmit corrected documents. Re-verification typically takes 1–2 business days.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category: Withdrawals -->
+      <div class="faq-category-content" id="withdrawals">
+        <h2 class="category-title">Withdrawals</h2>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>What Is the Minimum Amount Required for a Withdrawal?</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Minimum Withdrawal: 1% of the initial account size. Withdrawal requests below this amount cannot be processed.</p>
+              <p>Giveaway accounts have a withdrawal limit of 2% only. The minimum withdrawal requirement exists to reduce administrative and processing overhead, minimize transaction and network fees, and ensure a smoother payout experience for all traders.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>What are the Withdrawal Methods and Profit Splits?</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Available payout methods may include Cryptocurrency (USDT and other supported crypto assets), UPI transfers, Bank transfers, and E-wallet payments (where available).</p>
+              <p><strong>Profit Split:</strong> The Fusion Funded offers a progressive profit split of 80%, 85%, and up to 90% across all account types. Traders who consistently sustain the 90% level over multiple payouts may be considered for our upcoming Career Program.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>Requirements Before Withdrawing?</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Before submitting a withdrawal request, make sure:</p>
+              <ul>
+                <li>Your profit meets the minimum withdrawal requirement of 1% of the initial account size</li>
+                <li>You have completed at least 5 trading days on the funded account</li>
+                <li>KYC verification is completed and approved</li>
+                <li>The account balance is above the starting balance</li>
+              </ul>
+              <p><strong>Important Withdrawal Rule:</strong> Once a withdrawal request is submitted, no trading activity is allowed on the account. Placing any trade after requesting a payout will be treated as a hard breach, and the account may be terminated.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>How Long Does It Take to Receive a Withdrawal?</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Payout Processing Day: Wednesday. All approved withdrawal requests are processed on Wednesday each week.</p>
+              <p>Most payouts are completed within 24–48 hours after Wednesday processing. Delays may occur due to weekends, public holidays, banking hours, or additional compliance or security checks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category: Weekend Trading -->
+      <div class="faq-category-content" id="weekend">
+        <h2 class="category-title">Weekend Trading</h2>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>Is Weekend Holding Allowed?</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Yes — Weekend Holding Is Allowed (With Prior Approval).</p>
+              <p>Traders are permitted to hold positions over the weekend in both challenge and funded phases, but prior approval is required. To hold trades over the weekend, traders must contact support before the market closes on Friday informing the team that positions will remain open.</p>
+              <p>Failure to notify support before the Friday market close will result in a hard breach and account termination.</p>
+              <p>Important: Markets may open with price gaps after the weekend. Slippage or increased volatility can occur at market open. The maximum static drawdown rule still applies.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category: Security -->
+      <div class="faq-category-content" id="security">
+        <h2 class="category-title">Account Security & Access Rules</h2>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>What is the IP Address Policy?</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>There is No IP address location restriction for traders. Traders may access their accounts from different locations, devices, or networks without violating account rules.</p>
+              <p>However, the following practices are still prohibited: Account sharing, Unauthorized third-party access, Selling or transferring account access, Using compromised or stolen identities.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>What is the Inactivity Policy?</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>If a trading account remains inactive for 14 consecutive days, it will be treated as a hard breach and the account will be terminated.</p>
+              <p>This applies to Phase 1, Phase 2, and Funded accounts. To avoid this breach, place at least one trade within every 14-day period.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category: Refund -->
+      <div class="faq-category-content" id="refund">
+        <h2 class="category-title">Refund Policies</h2>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>What is the Refund Policy?</h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Evaluation fees are not refunded immediately after purchase. However, The Fusion Funded refunds the full challenge fee once a trader successfully completes the evaluation and demonstrates consistent performance on the funded account.</p>
+              <p>The challenge fee is refunded with the fourth payout from the funded account.</p>
+              <p>Refunds will not be issued for failed evaluations, rule violations, account termination, inactivity breaches, payment disputes, or personal trading losses.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== LONG FOOTER ===== -->
+  <footer class="footer long-footer">
+    <div class="footer-glow"></div>
+    <div class="footer-gradient-shape"></div>
+    <div class="container">
+      <div class="footer-grid footer-grid-5">
+        <div class="footer-brand">
+          <div class="footer-logo">THE FUSION <span class="gradient-text">FUNDED</span></div>
+          <p>At The Fusion Funded, we empower traders to unlock their full potential in the financial markets. We
+            provide funded accounts and expert support to help you overcome financial barriers.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/thefusionfunded/" class="social-link" aria-label="Instagram" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="..."/></svg>
+            </a>
+            <a href="https://t.me/thefusionfunded" class="social-link" aria-label="Telegram" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="..."/></svg>
+            </a>
+            <a href="https://wa.me/message/M3FHBYUPELBIJ1" class="social-link" aria-label="WhatsApp" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="..."/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html#hero">Home</a></li>
+            <li><a href="index.html#highlights">Key Highlights</a></li>
+            <li><a href="index.html#plans">Plans</a></li>
+            <li><a href="index.html#compare">Compare</a></li>
+            <li><a href="index.html#about">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Official</h4>
+          <ul>
+            <li><a href="trading_rules.html">Trading Rules</a></li>
+            <li><a href="affiliate_program.html">Affiliate Program</a></li>
+            <li><a href="https://thefusionfunded.com/Trusted_Partner.html" target="_blank">Trusted Partners</a></li>
+            <li><a href="https://thefusionfunded.com/contact_us.html" target="_blank">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Trading</h4>
+          <ul>
+            <li><a href="#">Forex Markets</a></li>
+            <li><a href="#">Crypto Trading</a></li>
+            <li><a href="#">Indices</a></li>
+            <li><a href="#">Commodities</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:info@thefusionfunded.com">info@thefusionfunded.com</a></li>
+            <li><a href="tel:+447861395161">+44 7861 395161</a></li>
+            <li>Grigori Afxentiou, Ayia Napa, Cyprus</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-disclaimer">
+        <h5>Risk Disclosure</h5>
+        <p>Trading in financial instruments carries a high level of risk to your capital...</p>
+        <p>The Fusion Funded does not provide financial services...</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 The Fusion Funded. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.faq-tab');
+      const contents = document.querySelectorAll('.faq-category-content');
+
+      // Function to switch tabs
+      function switchTab(targetId) {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        const activeTab = document.querySelector(`.faq-tab[data-target="${targetId}"]`);
+        const activeContent = document.getElementById(targetId);
+
+        if (activeTab && activeContent) {
+          activeTab.classList.add('active');
+          activeContent.classList.add('active');
+        } else if (tabs.length > 0) {
+           // Default to first
+           tabs[0].classList.add('active');
+           contents[0].classList.add('active');
+        }
+      }
+
+      // Check URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const category = urlParams.get('category');
+      
+      if (category) {
+        switchTab(category);
+      } else {
+        switchTab('about');
+      }
+
+      // Sidebar click events
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const target = tab.getAttribute('data-target');
+          switchTab(target);
+          // Update URL without reloading
+          const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?category=' + target;
+          window.history.pushState({path:newUrl},'',newUrl);
+        });
+      });
+
+      // Accordion functionality
+      const accordionHeaders = document.querySelectorAll('.accordion-header');
+      accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const item = header.parentElement;
+          const content = item.querySelector('.accordion-content');
+          
+          if (item.classList.contains('active')) {
+            item.classList.remove('active');
+            content.style.maxHeight = null;
+          } else {
+            // Optional: close other items
+            /*
+            const activeItems = document.querySelectorAll('.accordion-item.active');
+            activeItems.forEach(activeItem => {
+              activeItem.classList.remove('active');
+              activeItem.querySelector('.accordion-content').style.maxHeight = null;
+            });
+            */
+            item.classList.add('active');
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
